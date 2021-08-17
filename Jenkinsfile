@@ -45,7 +45,7 @@ pipeline {
                     sh "docker login $docker_registry -u=\"$USERNAME\" -p=\"$PASSWORD\""
                     sh "docker build -t $docker_image ."
                     sh "docker push $docker_image"
-
+                }
             }
         }
     }
