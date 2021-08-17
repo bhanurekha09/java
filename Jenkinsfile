@@ -16,10 +16,10 @@ pipeline {
               aborted {
                   updateGitlabCommitStatus name: STAGE_NAME, state: 'canceled'
               }
+         }
     }
- }
+  }
 }
-
 
 
 
