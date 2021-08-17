@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat
+import jenkins.model.*
 
 def branch_name = ""
 def gitShorthash = ""
