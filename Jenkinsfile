@@ -1,21 +1,16 @@
 
 pipeline {
-  agent { label ('master') }
-  triggers {
-    gitlab(triggerOnPush: true,
-           triggerOnMergeRequest: true,
-           branchFilterType: 'ALL')
-  }
-  
-  options {
-        gitlabBuilds(builds: ['Importing library', 'Build Artifacts', 'Build Docker Image', 'Deploy'])
-        ansicolor('xterm')
-        gitLabConnection('https://github.com/bhanurekha09/java')
-        disableConcurrentBuilds()
-  }
-
+    agent any
+stages {
+    stage ('download') {
+        steps {
+            script {
+                def scmInfo = checkout scm
+                println "GIT_COMMIT " + scmInfo.GIT_COMMIT
+            }
+        }
+    }
 }
-
 
 
 
