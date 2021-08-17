@@ -8,7 +8,7 @@ pipeline {
                   branch 'master'
                  
               }
-          }   
+          
          steps {
              script {
                 def scmInfo = checkout scm
