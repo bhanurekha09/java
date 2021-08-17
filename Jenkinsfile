@@ -5,6 +5,18 @@ def branch_name = ""
 def gitShorthash = ""
 def version = ""
 
+class Config {
+    static imagePath = [
+        'develop': 'sandbox',
+        'master':  'master'
+    ]
+
+    static userCredential = [
+        'develop':  'cds-user',
+        'master': 'cds-user'
+    ]
+}
+
 
 
 pipeline {
