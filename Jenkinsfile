@@ -12,8 +12,8 @@ class Config {
     ]
 
     static userCredential = [
-        'develop':  'cds-user',
-        'master': 'cds-user'
+        'develop':  'user',
+        'master': 'user'
     ]
 }
 
