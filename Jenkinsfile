@@ -3,20 +3,6 @@ import java.text.SimpleDateFormat
 def branch_name = ""
 def gitShorthash = ""
 def version = ""
-class Config {
-    
-
-    static imagePath = [
-        'feature1': 'sandbox',
-        'master':  'master'
-    ]
-
-    static userCredential = [
-        'feature1':  'user',
-        'master': 'user'
-    ]
-}
-
 
 
 
