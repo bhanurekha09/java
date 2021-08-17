@@ -24,7 +24,10 @@ pipeline {
                 print("Docker image: ${docker_image}")
                  
                 withCredentials([[$class: 'UP', credentialsId: "cds-user", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                    sh "docker login $docker_registry -u=\
+                    sh "docker login $docker_registry -u=\"$USERNAME\" -p=\"$PASSWORD\""
+                    sh "docker build -t $docker_image ."
+                    sh "docker push $docker_image"
+
             }
         }
     }
