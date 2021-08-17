@@ -4,11 +4,18 @@ pipeline {
     stages {
       stage ('download') {
          steps {
-             script {
-                def scmInfo = checkout scm
-                println "GIT_COMMIT " + scmInfo.GIT_COMMIT
-            }
-        }
+                checkout scm
+          }
+          post {
+              success {
+                  updateGitlabCommitStatus name: STAGE_NAME, state: 'success'
+              }
+              failure {
+                  updateGitlabCommitStatus name: STAGE_NAME, state: 'failed'
+              }
+              aborted {
+                  updateGitlabCommitStatus name: STAGE_NAME, state: 'canceled'
+              }
     }
  }
 }
