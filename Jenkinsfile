@@ -32,7 +32,7 @@ pipeline {
           
          steps {
              script {
-                branch_name = env.BRANCH_NAME>toLowerCase()
+                branch_name = env.BRANCH_NAME.toLowerCase()
                 image_path = "demo/${config.imagePath.get(env.BRANCH_NAME)}"
                 gitShortHash = getGitShortHash()
                 build_number = env.BUILD_ID
