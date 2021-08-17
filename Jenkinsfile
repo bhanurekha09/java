@@ -4,10 +4,12 @@ pipeline {
     stages {
       stage ('download') {
           when { 
-            
-                  branch 'master'
-                 
+              anyOf {
+                  branch 'master';
+                  branch 'feature1';
               }
+                 
+           }
           
          steps {
              script {
