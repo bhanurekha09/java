@@ -6,7 +6,7 @@ pipeline {
           when { 
               anyOf {
                   branch 'master';
-                  branch 'feature';
+                  branch 'feature1';
               }
           }   
          steps {
