@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 def branch_name = ""
 def gitShorthash = ""
 def version = ""
