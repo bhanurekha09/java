@@ -1,6 +1,6 @@
 def branch_name = ""
 def gitShorthash = ""
-
+def version = ""
 class Config {
     
 
