@@ -7,7 +7,7 @@ def version = ""
 
 class Config {
     static imagePath = [
-        'develop': 'sandbox',
+        'feature1': 'sandbox',
         'master':  'master'
     ]
 
