@@ -1,26 +1,18 @@
 import java.text.SimpleDateFormat
 import jenkins.model.*
 
-def branch_name = ""
-def gitShorthash = ""
-def version = ""
-
-class Config {
-    static imagePath = [
-        'feature1': 'sandbox',
-        'master':  'master'
-    ]
-
-    static userCredential = [
-        'develop':  'user',
-        'master': 'user'
-    ]
-}
-
-
-
 pipeline {
     agent any
+    parameters
+    {
+    string(name: 'RELEASE_VERSION', defaultValue: '2.0.1', description: 'Release version')
+    //string(name: 'LATAM_AIRFLOW_VERSION', defaultValue: '2.0.0', description: 'Latam Airflow version')
+    //string(name: 'AIRFLOW_UI_PORT', defaultValue: '8089', description: 'Airflow Webserver Local Port')
+    // Remember that first option is defaultValue for choices
+    choice(name: 'ENVIRONMENT', choices: ['DEV', 'UACC', 'PROD'], description: 'environment')
+    choice(name: 'NAMESPACE', choices: ['dev', 'uacc', 'prod'], description: 'namespace')
+    }   
+    
     stages {
       stage ('download') {
           when { 
@@ -32,23 +24,10 @@ pipeline {
            }
           
          steps {
-             script {
-                branch_name = env.BRANCH_NAME.toLowerCase()
-                image_path = "demo/${config.imagePath.get(env.BRANCH_NAME)}"
-                gitShortHash = getGitShortHash()
-                build_number = env.BUILD_ID
-                 
-                version = "${branch_name}_${build_number}_${gitShortHash}"
-                docker_image = "${registry}/${image_path}:${version}"
-                print("Docker image: ${docker_image}")
-                 
-                withCredentials([[$class: 'UP', credentialsId: "user", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-                    sh "docker login $docker_registry -u=\"$USERNAME\" -p=\"$PASSWORD\""
-                    sh "docker build -t $docker_image ."
-                    sh "docker push $docker_image"
+              checkout scm
                 }
-            }
+         }
         }
     }
- }
-}
+ 
+
