@@ -24,7 +24,8 @@ pipeline {
            }
           
          steps {
-              checkout scm
+             script {
+                 print("environment: "${params.ENVIRONMENT}")
                 }
          }
         }
