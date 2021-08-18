@@ -25,7 +25,7 @@ pipeline {
           
          steps {
              script {
-                 print("environment: "${params.ENVIRONMENT}")
+                 print("environment: ${params.ENVIRONMENT}")
                 }
          }
         }
