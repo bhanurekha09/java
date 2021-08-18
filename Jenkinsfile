@@ -10,7 +10,7 @@ pipeline {
     //string(name: 'AIRFLOW_UI_PORT', defaultValue: '8089', description: 'Airflow Webserver Local Port')
     // Remember that first option is defaultValue for choices
     choice(name: 'ENVIRONMENT', choices: ['DEV', 'UACC', 'PROD'], description: 'environment')
-    choice(name: 'NAMESPACE', choices: ['dev', 'uacc', 'prod'], description: 'namespace')
+    choice(name: 'NAMESPACE', choices: ['devops', 'dev', 'uacc', 'prod'], description: 'namespace')
     }   
     
     stages {
@@ -25,7 +25,7 @@ pipeline {
           
          steps {
              script {
-                 print("environment: ${params.ENVIRONMENT}.poc")
+                 print("environment: ${params.NAMESPACE}-poc")
                 }
          }
         }
