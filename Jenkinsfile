@@ -25,7 +25,7 @@ pipeline {
           
          steps {
              script {
-                 print("environment: ${params.NAMESPACE}-poc")
+                 print( "${params.NAMESPACE}")
                 }
          }
         }
