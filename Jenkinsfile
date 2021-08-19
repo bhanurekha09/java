@@ -5,7 +5,7 @@ pipeline {
     agent any
     parameters
     {
-    string(name: 'RELEASE_VERSION', defaultValue: '2.0.1', description: 'Release version')
+    string(name: 'APPNAME', defaultValue: '2.0.1')
     //string(name: 'LATAM_AIRFLOW_VERSION', defaultValue: '2.0.0', description: 'Latam Airflow version')
     //string(name: 'AIRFLOW_UI_PORT', defaultValue: '8089', description: 'Airflow Webserver Local Port')
     // Remember that first option is defaultValue for choices
