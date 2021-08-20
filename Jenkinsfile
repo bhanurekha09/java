@@ -32,7 +32,14 @@ pipeline {
                  if(env.APPNAME == " " || env.APPNAME.contains("-")){
           			print("ERROR: No APPNAME was provided")
 		 }else{
-                    print("NO ERROR")
+                     withCredentials([
+		       file(credentialsId: 'root_cert', variable: 'ROOT_CERT_FILE'),
+		       file(credentialsId: 'server_crt', variable: 'SERVER_CERT_FILE'),
+		       file(credentialsId: 'server_key', variable: 'SERVER_KEY_FILE'),
+		       string(credentialsId: 'auth_header', variable: 'AUTH_KEY'),
+		       string(credentialsId: 'shard_cred', variable: 'SECRET')
+			 ])
+
 		 }		 
 
                 }
