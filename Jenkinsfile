@@ -27,6 +27,13 @@ pipeline {
              script {
                  print( "${params.NAMESPACE}")
                  print("${params.APPNAME}")
+                 print("${env.APPNAME}")
+                 
+                 if(env.APPNAME == " " || env.APPNAME.contains("-")){
+          			print("ERROR: No APPNAME was provided")
+		         }else{
+                    print("NO ERROR")
+
                 }
          }
         }
