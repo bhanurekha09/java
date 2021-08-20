@@ -31,8 +31,9 @@ pipeline {
                  
                  if(env.APPNAME == " " || env.APPNAME.contains("-")){
           			print("ERROR: No APPNAME was provided")
-		         }else{
+		 }else{
                     print("NO ERROR")
+		 }		 
 
                 }
          }
