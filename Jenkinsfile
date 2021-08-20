@@ -35,7 +35,7 @@ pipeline {
                  withCredentials([[$file: 'filecredentials', credentialsId: 'filetext', variable: 'filename']])
 			 
                      
-		 }		 
+		 	 
 
                 }
          }
