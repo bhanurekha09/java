@@ -33,11 +33,8 @@ pipeline {
           			print("ERROR: No APPNAME was provided")
 		 }else{
                      withCredentials([
-		       file(credentialsId: 'Dockerfile', variable: 'ROOT_CERT_FILE'),
-		       file(credentialsId: 'pom.xml', variable: 'SERVER_CERT_FILE'),
-		       string(credentialsId: 'auth_header', variable: 'AUTH_KEY'),
-		       string(credentialsId: 'shard_cred', variable: 'SECRET')
-			 ])
+		       file(credentialsId: 'filetext', variable: 'ROOT_CERT_FILE')
+		     ])
                      
 		 }		 
 
