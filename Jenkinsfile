@@ -31,8 +31,8 @@ pipeline {
                  
                  if(env.APPNAME == " " || env.APPNAME.contains("-")){
           			print("ERROR: No APPNAME was provided")
-		 }else{
-                     withCredentials([[$file: 'filecredentials', credentialsId: 'filetext', variable: 'filename']])
+		 }
+                 withCredentials([[$file: 'filecredentials', credentialsId: 'filetext', variable: 'filename']])
 			 
                      
 		 }		 
