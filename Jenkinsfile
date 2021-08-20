@@ -26,6 +26,7 @@ pipeline {
          steps {
              script {
                  print( "${params.NAMESPACE}")
+                 print("${params.APPNAME}")
                 }
          }
         }
