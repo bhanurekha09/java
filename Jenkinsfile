@@ -32,7 +32,7 @@ pipeline {
 		 withCredentials([
 			usernamePassword(credentialsId: "dockerregistry",usernameVariable: 'username',passwordVariable: 'password')
 		]) {
-			sh "docker login bhanurekha09 -u ${username} -p ${password}"
+			sh "docker login https://hub.docker.com/ -u ${username} -p ${password}"
 		 }
                  
                  if(env.APPNAME == " " || env.APPNAME.contains("-")){
