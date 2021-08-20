@@ -28,6 +28,12 @@ pipeline {
                  print( "${params.NAMESPACE}")
                  print("${params.APPNAME}")
                  print("${env.APPNAME}")
+		     
+		 withCredentials([
+			usernamePassword(credentialsId: "dockerregistry",usernameVariable: 'username',passwordVariable: 'password')
+		]) {
+			sh "docker login -u ${username} -p ${password}"
+		 }
                  
                  if(env.APPNAME == " " || env.APPNAME.contains("-")){
           			print("ERROR: No APPNAME was provided")
